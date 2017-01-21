@@ -1,0 +1,16 @@
+-rw------- root     root     56213824 2010-01-01 01:34 00061_20100101-000021_normal_rx_from_cm4.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_normal_rx_from_ground.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_normal_rx_from_ground2.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_normal_tx_to_cm4.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_normal_tx_to_ground.txt
+-rw------- root     root     56213824 2010-01-01 01:34 00061_20100101-000021_normal_tx_to_ground2.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_test_rx_from_cm4.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_test_rx_from_ground.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_test_tx_to_cm4.txt
+-rw------- root     root            0 2010-01-01 00:00 00061_20100101-000021_test_tx_to_ground.txt
+-rw------- root     root       269032 2010-01-01 01:34 battery_00061_20100101-000016.txt
+-rw------- root     root        49815 2010-01-01 01:34 cpu_info_00061_20100101-000044.txt
+-rw------- root     root     29720640 2010-01-01 01:34 gimbal_00061_20100101-000021.bin
+-rw------- root     root      1473940 2010-01-01 01:34 gps_00061_20100101-000021.txt
+-rw------- root     root     12178325 2010-01-01 01:34 optical_flow_00061_20100101-000023.txt
+-rw------- root     root     242292736 2010-01-01 01:34 top-secret_00061_20100101-000016.bin
