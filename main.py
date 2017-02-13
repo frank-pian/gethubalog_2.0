@@ -142,43 +142,45 @@ def home_1Menu():
 		ini.reset()
 		home_1Menu()
 
-#判断系统类型，windows 1,Linux 2,Mac 3,未知 0
-int_systemtype=0
-
-if platform.system()=='Windows':
-	int_systemtype=1
-	import wini
-	int_stringnumber=32#module.py 34l
-	ini=wini
-	ini.cmdSize()
-	from subprocess import CREATE_NEW_CONSOLE
-	subprocess.Popen(["adb","nodaemon","server"],creationflags=CREATE_NEW_CONSOLE)
-elif platform.system()=='Linux':
-	int_systemtype=2
-	import lini
-	int_stringnumber=31#module.py 34l
-	ini=lini
-elif platform.system()=='Mac':
-	int_systemtype=3
-	import mini
-	ini=mini
-else:
+if __name__ == '__main__':
+	
+	#判断系统类型，windows 1,Linux 2,Mac 3,未知 0
 	int_systemtype=0
-	print("ERR,System type unknow!")
-	exit()
 
-#是否安装ADB
-int_adbexit=ini.adbExist()
-ini.clr()
-if int_adbexit == 1:
-	print('ERR:Cannot find ADB!')
-	exit()
+	if platform.system()=='Windows':
+		int_systemtype=1
+		import wini
+		int_stringnumber=32#module.py 34l
+		ini=wini
+		ini.cmdSize()
+		from subprocess import CREATE_NEW_CONSOLE
+		subprocess.Popen(["adb","nodaemon","server"],creationflags=CREATE_NEW_CONSOLE)
+	elif platform.system()=='Linux':
+		int_systemtype=2
+		import lini
+		int_stringnumber=31#module.py 34l
+		ini=lini
+	elif platform.system()=='Mac':
+		int_systemtype=3
+		import mini
+		ini=mini
+	else:
+		int_systemtype=0
+		print("ERR,System type unknow!")
+		exit()
 
-ini.pathExist()#本地hlog文件夹
+	#是否安装ADB
+	int_adbexit=ini.adbExist()
+	ini.clr()
+	if int_adbexit == 1:
+		print('ERR:Cannot find ADB!')
+		exit()
 
-#等待ADB连接
-ui.adbWait()
-os.system("adb wait-for-device")
-ini.reset()
-module.rootHuba()
-homeMenu()
+	ini.pathExist()#本地hlog文件夹
+
+	#等待ADB连接
+	ui.adbWait()
+	os.system("adb wait-for-device")
+	ini.reset()
+	module.rootHuba()
+	homeMenu()
