@@ -37,8 +37,8 @@ def homeMenu():
 	print("[6] 退出")
 
 def home_1Menu():
-	print("[1] 下载所有日志          [2] 下载所有飞控日志")
-	print("[3] 下载指定SN码日志      [4] 下载指定SN码飞控日志")
+	print("[1] 下载所有日志          [2] 下载所有仅飞控日志")
+	print("[3] 下载指定SN码所有日志  [4] 下载指定SN码仅飞控日志")
 	print("[5] 删除该路径下所有日志  [6] 返回")
 
 def home_5Warning():

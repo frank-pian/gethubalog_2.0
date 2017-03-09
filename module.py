@@ -3,7 +3,7 @@ import os
 
 DATAPATH = "/data/log/"
 DATALOG = "/data/log/*"
-FCLOG = "/data/log/top-secret*"
+FCLOG = "/data/log/top-secret*.bin"
 GPSLOG = "/sdcard/mtklog/gpsdbglog"
 STR_FCLOGEXIST = "/data/log/top-secret*: No such file or directory\n"
 
@@ -35,12 +35,22 @@ def fcLoglist(snumber):
 #下载指定SN码全部日志到指定路径
 def downloadSnlog(str_sn,str_localpath):
 	os.system("adb shell mkdir /data/log/TEMP")
-	os.system("adb shell cp "+DATAPATH+"top-secret_"+str_sn+"*"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+"top-secret_"+str_sn+"*.bin"+" "+"/data/log/TEMP")
+	os.system("adb shell cp -R "+DATAPATH+"top-secret_"+str_sn+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+"battery_"+str_sn+"*"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+"gimbal_"+str_sn+"*"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+"gps_"+str_sn+"*"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+"optical_flow_"+str_sn+"*"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+"optical_flow_listener_"+str_sn+"*"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_rx_from_cm4.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_rx_from_ground.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_tx_to_cm4.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_tx_from_ground.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_rx_from_cm4.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_rx_from_ground.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_from_cm4.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_from_ground.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+"cpu_info_"+str_sn+"*"+" "+"/data/log/TEMP")
 	os.system("adb pull /data/log/TEMP "+str_localpath)
 	os.system("adb shell rm -r /data/log/TEMP")
 
