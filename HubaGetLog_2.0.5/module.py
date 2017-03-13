@@ -45,13 +45,13 @@ def downloadSnlog(str_sn,str_localpath):
 	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_rx_from_cm4.txt"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_rx_from_ground.txt"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_tx_to_cm4.txt"+" "+"/data/log/TEMP")
-	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_tx_from_ground.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_normal_tx_to_ground.txt"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_rx_from_cm4.txt"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_rx_from_ground.txt"+" "+"/data/log/TEMP")
-	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_from_cm4.txt"+" "+"/data/log/TEMP")
-	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_from_ground.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_to_cm4.txt"+" "+"/data/log/TEMP")
+	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_to_ground.txt"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+"cpu_info_"+str_sn+"*"+" "+"/data/log/TEMP")
-	os.system("adb pull /data/log/TEMP "+str_localpath)
+	os.system("adb pull /data/log/TEMP/* "+str_localpath)
 	os.system("adb shell rm -r /data/log/TEMP")
 
 #下载指定SN码飞控日志到指定路径
