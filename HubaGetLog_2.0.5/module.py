@@ -51,7 +51,7 @@ def downloadSnlog(str_sn,str_localpath):
 	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_to_cm4.txt"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+str_sn+"*"+"_test_tx_to_ground.txt"+" "+"/data/log/TEMP")
 	os.system("adb shell cp "+DATAPATH+"cpu_info_"+str_sn+"*"+" "+"/data/log/TEMP")
-	os.system("adb pull /data/log/TEMP/* "+str_localpath)
+	os.system("adb pull /data/log/TEMP "+str_localpath)
 	os.system("adb shell rm -r /data/log/TEMP")
 
 #下载指定SN码飞控日志到指定路径
@@ -67,7 +67,7 @@ def downloadGpslog(str_localpath):
 
 #判断FCLOG是否存在飞控日志(1无日志，0有日志)
 def fcLogexist():
-	if (subprocess.getoutput("adb shell ls "+FCLOG)==STR_FCLOGEXIST):
+	if (subprocess.getoutput("adb shell ls "+DATAPATH)==''):
 		return 1
 	else:
 		return 0

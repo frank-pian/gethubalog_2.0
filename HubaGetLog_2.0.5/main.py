@@ -34,13 +34,21 @@ def homeMenu():
 		homeMenu()
 
 	elif int_homeinput=='3':#清空所有日志
-		module.clearLog()
-		module.clearGpslog()
-		ini.reset()
-		homeMenu()
+		str_home_sureclear=input("确定删除全部日志吗？(Y/N):")
+		if str_home_sureclear.upper()=='Y':
+			module.clearLog()
+			module.clearGpslog()
+			print("删除完毕！")
+			time.sleep(2)
+			ini.reset()
+			homeMenu()
+		else:
+			ini.reset()
+			homeMenu()
 
 	elif int_homeinput=='4':#打开GPS日志记录开关
 		module.startGps()
+		print("GPS日志记录开关已打开!")
 		time.sleep(2)
 		ini.reset()
 		homeMenu()
